@@ -1,0 +1,47 @@
+{
+    "about_page": {
+        "header": {
+            "title": "About Us",
+            "description": "Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to business shipments — we deliver on time, every time."
+        },
+        "tabs": [
+            {
+                "id": "story",
+                "label": "Story",
+                "is_active": true,
+                "paragraphs": [
+                    "We started with a simple promise — to make parcel delivery fast, reliable, and stress-free. Over the years, our commitment to real-time tracking, efficient logistics, and customer-first service has made us a trusted partner for thousands. Whether it's a personal gift or a time-sensitive business delivery, we ensure it reaches its destination — on time, every time.",
+                    "We started with a simple promise — to make parcel delivery fast, reliable, and stress-free. Over the years, our commitment to real-time tracking, efficient logistics, and customer-first service has made us a trusted partner for thousands. Whether it's a personal gift or a time-sensitive business delivery, we ensure it reaches its destination — on time, every time.",
+                    "We started with a simple promise — to make parcel delivery fast, reliable, and stress-free. Over the years, our commitment to real-time tracking, efficient logistics, and customer-first service has made us a trusted partner for thousands. Whether it's a personal gift or a time-sensitive business delivery, we ensure it reaches its destination — on time, every time."
+                ]
+            },
+            {
+                "id": "mission",
+                "label": "Mission",
+                "is_active": false,
+                "paragraphs": [
+                    "Our mission is to revolutionize logistics by providing seamless, transparent, and eco-friendly delivery solutions worldwide.",
+                    "We continuous invest in cutting-edge tracking technology to guarantee peace of mind for every sender and recipient."
+                ]
+            },
+            {
+                "id": "success",
+                "label": "Success",
+                "is_active": false,
+                "paragraphs": [
+                    "With over 1 million parcels successfully delivered, we have maintained a 99.8% on-time delivery rate across the country.",
+                    "Our dedication has earned us multiple industry awards for logistics innovation and outstanding customer support."
+                ]
+            },
+            {
+                "id": "team-others",
+                "label": "Team & Others",
+                "is_active": false,
+                "paragraphs": [
+                    "Behind our flawless logistics network is a dedicated team of supply chain experts, drivers, and support staff working 24/7.",
+                    "Together, we build the infrastructure that keeps your businesses moving and your loved ones connected."
+                ]
+            }
+        ]
+    }
+}
