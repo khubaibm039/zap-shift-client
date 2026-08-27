@@ -1,6 +1,7 @@
 import { Link, NavLink, Outlet } from "react-router";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdHistory } from "react-icons/md";
+import { FaMotorcycle } from "react-icons/fa";
 
 const DashboardLayout = () => {
     return (
@@ -47,8 +48,6 @@ const DashboardLayout = () => {
                     <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
                         {/* Sidebar content here */}
                         <ul className="menu w-full grow">
-                           
-
                             {/* List item */}
                             <li>
                                 <Link
@@ -73,21 +72,36 @@ const DashboardLayout = () => {
                                     </span>
                                 </Link>
                             </li>
-                             <li>
-                                <NavLink  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                                    data-tip="MyParcels" to={"/dashboard/my-parcels"}>
+                            <li>
+                                <NavLink
+                                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                                    data-tip="MyParcels"
+                                    to={"/dashboard/my-parcels"}>
                                     <TbTruckDelivery className="my-1.5 inline-block size-4" />
-                                     <span className="is-drawer-close:hidden">
-                                       My Parcels
+                                    <span className="is-drawer-close:hidden">
+                                        My Parcels
                                     </span>
                                 </NavLink>
                             </li>
-                                <li>
-                                <NavLink  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                                    data-tip="MyParcels" to={"/dashboard/payment-history"}>
+                            <li>
+                                <NavLink
+                                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                                    data-tip="MyParcels"
+                                    to={"/dashboard/payment-history"}>
                                     <MdHistory className="my-1.5 inline-block size-4" />
-                                     <span className="is-drawer-close:hidden">
-                                      Payment History
+                                    <span className="is-drawer-close:hidden">
+                                        Payment History
+                                    </span>
+                                </NavLink>
+                            </li>
+                              <li>
+                                <NavLink
+                                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                                    data-tip="MyParcels"
+                                    to={"/dashboard/approve-riders"}>
+                                    <FaMotorcycle className="my-1.5 inline-block size-4" />
+                                    <span className="is-drawer-close:hidden">
+                                       Approve Rider
                                     </span>
                                 </NavLink>
                             </li>
