@@ -1,7 +1,7 @@
 import { Link, NavLink, Outlet } from "react-router";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdHistory } from "react-icons/md";
-import { FaMotorcycle } from "react-icons/fa";
+import { FaMotorcycle, FaUsers } from "react-icons/fa";
 
 const DashboardLayout = () => {
     return (
@@ -75,7 +75,7 @@ const DashboardLayout = () => {
                             <li>
                                 <NavLink
                                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                                    data-tip="MyParcels"
+                                    data-tip="My Parcels"
                                     to={"/dashboard/my-parcels"}>
                                     <TbTruckDelivery className="my-1.5 inline-block size-4" />
                                     <span className="is-drawer-close:hidden">
@@ -86,7 +86,7 @@ const DashboardLayout = () => {
                             <li>
                                 <NavLink
                                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                                    data-tip="MyParcels"
+                                    data-tip="Payment History"
                                     to={"/dashboard/payment-history"}>
                                     <MdHistory className="my-1.5 inline-block size-4" />
                                     <span className="is-drawer-close:hidden">
@@ -94,14 +94,25 @@ const DashboardLayout = () => {
                                     </span>
                                 </NavLink>
                             </li>
-                              <li>
+                            <li>
                                 <NavLink
                                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                                    data-tip="MyParcels"
+                                    data-tip="Approve Rider"
                                     to={"/dashboard/approve-riders"}>
                                     <FaMotorcycle className="my-1.5 inline-block size-4" />
                                     <span className="is-drawer-close:hidden">
-                                       Approve Rider
+                                        Approve Rider
+                                    </span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                                    data-tip="Users Management"
+                                    to={"/dashboard/users-management"}>
+                                    <FaUsers className="my-1.5 inline-block size-4" />
+                                    <span className="is-drawer-close:hidden">
+                                       Users Management
                                     </span>
                                 </NavLink>
                             </li>

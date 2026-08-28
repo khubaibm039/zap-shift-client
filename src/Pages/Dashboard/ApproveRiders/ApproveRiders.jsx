@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { FaTrash, FaUserCheck } from "react-icons/fa";
+import { FaEye, FaTrash, FaUserCheck } from "react-icons/fa";
 import { IoPersonRemoveSharp } from "react-icons/io5";
 import Swal from "sweetalert2";
 const ApproveRiders = () => {
@@ -59,6 +59,12 @@ const ApproveRiders = () => {
             }
         });
     };
+    const InfoRow = ({ label, value }) => (
+        <div className="grid grid-cols-[90px_1fr] gap-2 text-sm">
+            <span className="text-gray-400">{label}</span>
+            <span className="text-gray-700 font-medium">{value || "N/A"}</span>
+        </div>
+    );
 
     return (
         <div>
@@ -92,7 +98,50 @@ const ApproveRiders = () => {
                                         </p>
                                     }
                                 </td>
+
                                 <td>
+                                    {/* Open the modal using document.getElementById('ID').showModal() method */}
+                                    <button
+                                        className="btn"
+                                        onClick={() =>
+                                            document
+                                                .getElementById("my_modal_2")
+                                                .showModal()
+                                        }>
+                                        <FaEye></FaEye>
+                                    </button>
+                                    <dialog id="my_modal_2" className="modal">
+                                        <div className="modal-box max-w-md">
+                                            <h3 className="font-bold text-xl mb-4">
+                                               Rider Info
+                                            </h3>
+
+                                            <div className="bg-base-200 rounded-xl p-4 space-y-3">
+                                                <InfoRow
+                                                    label="Name"
+                                                    value={rider?.name}
+                                                />
+                                                <InfoRow
+                                                    label="Phone"
+                                                    value={rider?.phone}
+                                                />
+                                                <InfoRow
+                                                    label="Email"
+                                                    value={rider?.email}
+                                                />
+                                                <InfoRow
+                                                    label="district"
+                                                    value={rider?.district}
+                                                />
+                                               
+                                            </div>
+                                        </div>
+                                        <form
+                                            method="dialog"
+                                            className="modal-backdrop">
+                                            <button>close</button>
+                                        </form>
+                                    </dialog>
                                     <button
                                         onClick={() => handleApproval(rider)}
                                         className="btn">
