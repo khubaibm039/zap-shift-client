@@ -96,13 +96,16 @@ const DashboardLayout = () => {
                                     </span>
                                 </NavLink>
                             </li>
-                            {!role === "rider" && (
+                            {/* //k rider only  */}
+                            {!isLoading && role === "rider" && (
                                 <>
                                     <li>
                                         <NavLink
                                             className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                                             data-tip="Assigned Deliveries"
-                                            to={"/dashboard/assigned-deliveries"}>
+                                            to={
+                                                "/dashboard/assigned-deliveries"
+                                            }>
                                             <FaTasks className="my-1.5 inline-block size-4" />
                                             <span className="is-drawer-close:hidden">
                                                 Approve Rider
