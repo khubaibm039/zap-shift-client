@@ -78,14 +78,15 @@ const ApproveRiders = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Status</th>
-                            <th>Action</th>
                             <th>Districts</th>
+                            <th>Application Status</th>
+                            <th>Work Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {riders.map((rider, index) => (
-                            <tr>
+                            <tr key={rider._id}>
                                 <th>{index + 1}</th>
                                 <td>{rider.name}</td>
                                 <td>{rider.email}</td>
@@ -98,6 +99,7 @@ const ApproveRiders = () => {
                                         </p>
                                     }
                                 </td>
+                                <td>{rider.workStatus}</td>
 
                                 <td>
                                     {/* Open the modal using document.getElementById('ID').showModal() method */}
@@ -113,7 +115,7 @@ const ApproveRiders = () => {
                                     <dialog id="my_modal_2" className="modal">
                                         <div className="modal-box max-w-md">
                                             <h3 className="font-bold text-xl mb-4">
-                                               Rider Info
+                                                Rider Info
                                             </h3>
 
                                             <div className="bg-base-200 rounded-xl p-4 space-y-3">
@@ -133,7 +135,6 @@ const ApproveRiders = () => {
                                                     label="district"
                                                     value={rider?.district}
                                                 />
-                                               
                                             </div>
                                         </div>
                                         <form

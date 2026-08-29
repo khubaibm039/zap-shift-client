@@ -1,11 +1,11 @@
 import { Link, NavLink, Outlet } from "react-router";
 import { TbTruckDelivery } from "react-icons/tb";
-import { MdHistory } from "react-icons/md";
+import { MdBikeScooter, MdHistory } from "react-icons/md";
 import { FaMotorcycle, FaUsers } from "react-icons/fa";
 import useRole from "../Hooks/useRole";
 
 const DashboardLayout = () => {
-    const {role, isLoading} = useRole();
+    const { role, isLoading } = useRole();
     return (
         <div>
             <div className="drawer lg:drawer-open max-w-7xl mx-auto">
@@ -96,7 +96,7 @@ const DashboardLayout = () => {
                                     </span>
                                 </NavLink>
                             </li>
-                            { !isLoading && role === "admin" && (
+                            {!isLoading && role === "admin" && (
                                 <>
                                     <li>
                                         <NavLink
@@ -106,6 +106,17 @@ const DashboardLayout = () => {
                                             <FaMotorcycle className="my-1.5 inline-block size-4" />
                                             <span className="is-drawer-close:hidden">
                                                 Approve Rider
+                                            </span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                                            data-tip="Assign Riders"
+                                            to={"/dashboard/assign-riders"}>
+                                            <MdBikeScooter className="my-1.5 inline-block size-4" />
+                                            <span className="is-drawer-close:hidden">
+                                              Assign Riders
                                             </span>
                                         </NavLink>
                                     </li>

@@ -55,7 +55,7 @@ const MyParcels = () => {
             paymentInfo,
         );
         if (res.data?.url) {
-            window.location.assign(res.data.url)
+            window.location.assign(res.data.url);
         }
     };
 
@@ -71,6 +71,7 @@ const MyParcels = () => {
                             <th>Name</th>
                             <th>Cost</th>
                             <th>Payment </th>
+                            <th>Tracking Id </th>
                             <th>Delivery Status</th>
                             <th>Action</th>
                         </tr>
@@ -87,11 +88,17 @@ const MyParcels = () => {
                                             paid
                                         </span>
                                     ) : (
-                                        <button onClick={()=> handlePayment(parcel)} className="btn-primary text-black btn btn-sm">
+                                        <button
+                                            onClick={() =>
+                                                handlePayment(parcel)
+                                            }
+                                            className="btn-primary text-black btn btn-sm">
                                             Pay
                                         </button>
                                     )}
+                                    
                                 </td>
+                                <td>{parcel.trackingId}</td>
                                 <td>{parcel.deliveryStatus}</td>
                                 <td className="flex gap-4">
                                     <button className="btn btn-square hover:bg-primary">
