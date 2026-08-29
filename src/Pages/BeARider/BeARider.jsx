@@ -51,7 +51,7 @@ const BeARider = () => {
     return (
         <div className="flex bg-white rounded-2xl min-h-screen justify-center items-center p-8">
             <div className="flex-1 flex flex-col justify-center items-center">
-                <divs className="w-full max-w-md">
+                <div className="w-full max-w-md">
                     <div className="py-10">
                         <div className=" bg-white rounded-lg">
                             <h1 className="text-5xl font-bold  mb-4">
@@ -293,7 +293,7 @@ const BeARider = () => {
                             </div>
                         </div>
                     </div>
-                </divs>
+                </div>
             </div>
 
             <div className="flex-1 flex flex-col justify-center items-center">

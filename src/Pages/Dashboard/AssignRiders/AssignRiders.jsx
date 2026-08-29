@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useRef, useState } from "react";
+import Swal from "sweetalert2";
 
 const AssignRiders = () => {
     const [selectedParcel, setSelectedParcel] = useState("");
     const axiosSecure = useAxiosSecure();
     const riderModalRef = useRef();
 
-    const { data: parcels = [] } = useQuery({
+    const { data: parcels = [],refetch: parcelsRefetch  } = useQuery({
         queryKey: ["parcels", "pending-pickup"],
         queryFn: async () => {
             const res = await axiosSecure.get(
@@ -16,7 +17,7 @@ const AssignRiders = () => {
             return res.data;
         },
     });
-    const { data: riders = [] } = useQuery({
+    const { data: riders = [],refetch: ridersRefetch} = useQuery({
         queryKey: ["riders", selectedParcel?.senderDistrict, "available"],
         enabled: !!selectedParcel,
         queryFn: async () => {
@@ -26,23 +27,38 @@ const AssignRiders = () => {
             return res.data;
         },
     });
-    
 
     const openAssignRiderModal = (parcel) => {
         riderModalRef.current.showModal();
         setSelectedParcel(parcel);
     };
 
-    const handleAssignRider = rider =>{
+    const handleAssignRider = (rider) => {
         const riderAssignInfo = {
-            riderId : rider._id,
+            riderId: rider._id,
             riderEmail: rider.email,
-            riderName : rider.name,
-            parcelId: selectedParcel._id
+            riderName: rider.name,
+            parcelId: selectedParcel._id,
+        };
+      
+        axiosSecure
+            .patch(`/parcels/${selectedParcel._id}`, riderAssignInfo)
+            .then((res) => {
+                if (res.data.modifiedCount) {
+                    riderModalRef.current.close();
+                    parcelsRefetch();
+                    ridersRefetch();
+                    Swal.fire({
+                        title: "Assigned!",
+                        text: "Rider has been Assigned.",
+                        showConfirmButton:false,
+                        icon: "success",
+                    });
+                }
+            });
+    };
+    console.log(riders)
 
-        }
-        axiosSecure.patch(``, riderAssignInfo)
-    }
 
     return (
         <div>
@@ -74,7 +90,7 @@ const AssignRiders = () => {
                                             openAssignRiderModal(parcel)
                                         }
                                         className="btn btn-primary text-black">
-                                        Assign Rider
+                                        Find Rider
                                     </button>
                                 </td>
                             </tr>
@@ -108,7 +124,11 @@ const AssignRiders = () => {
                                             <td>{rider.name}</td>
                                             <td>{rider.email}</td>
                                             <td>
-                                                <button onClick={()=>handleAssignRider(rider) } className="btn btn-primary text-black">
+                                                <button
+                                                    onClick={() =>
+                                                        handleAssignRider(rider)
+                                                    }
+                                                    className="btn btn-primary text-black">
                                                     Assign
                                                 </button>
                                             </td>

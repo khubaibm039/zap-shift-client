@@ -1,7 +1,7 @@
 import { Link, NavLink, Outlet } from "react-router";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdBikeScooter, MdHistory } from "react-icons/md";
-import { FaMotorcycle, FaUsers } from "react-icons/fa";
+import { FaMotorcycle, FaTasks, FaUsers } from "react-icons/fa";
 import useRole from "../Hooks/useRole";
 
 const DashboardLayout = () => {
@@ -96,6 +96,24 @@ const DashboardLayout = () => {
                                     </span>
                                 </NavLink>
                             </li>
+                            {!role === "rider" && (
+                                <>
+                                    <li>
+                                        <NavLink
+                                            className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                                            data-tip="Assigned Deliveries"
+                                            to={"/dashboard/assigned-deliveries"}>
+                                            <FaTasks className="my-1.5 inline-block size-4" />
+                                            <span className="is-drawer-close:hidden">
+                                                Approve Rider
+                                            </span>
+                                        </NavLink>
+                                    </li>
+                                </>
+                            )}
+
+                            {/*//k admin only routes  */}
+
                             {!isLoading && role === "admin" && (
                                 <>
                                     <li>
@@ -116,7 +134,7 @@ const DashboardLayout = () => {
                                             to={"/dashboard/assign-riders"}>
                                             <MdBikeScooter className="my-1.5 inline-block size-4" />
                                             <span className="is-drawer-close:hidden">
-                                              Assign Riders
+                                                Assign Riders
                                             </span>
                                         </NavLink>
                                     </li>
