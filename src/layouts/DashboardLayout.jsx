@@ -1,6 +1,6 @@
 import { Link, NavLink, Outlet } from "react-router";
 import { TbTruckDelivery } from "react-icons/tb";
-import { MdBikeScooter, MdHistory } from "react-icons/md";
+import { MdBikeScooter, MdHistory, MdTaskAlt } from "react-icons/md";
 import { FaMotorcycle, FaTasks, FaUsers } from "react-icons/fa";
 import useRole from "../Hooks/useRole";
 
@@ -107,6 +107,19 @@ const DashboardLayout = () => {
                                                 "/dashboard/assigned-deliveries"
                                             }>
                                             <FaTasks className="my-1.5 inline-block size-4" />
+                                            <span className="is-drawer-close:hidden">
+                                                Approve Rider
+                                            </span>
+                                        </NavLink>
+                                    </li>
+                                     <li>
+                                        <NavLink
+                                            className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                                            data-tip="Completed Deliveries"
+                                            to={
+                                                "/dashboard/completed-deliveries"
+                                            }>
+                                            <MdTaskAlt className="my-1.5 inline-block size-4" />
                                             <span className="is-drawer-close:hidden">
                                                 Approve Rider
                                             </span>
