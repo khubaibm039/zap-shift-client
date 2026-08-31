@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { FaRegEdit, FaTrash } from "react-icons/fa";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const MyParcels = () => {
     const { user } = useAuth();
@@ -49,6 +50,7 @@ const MyParcels = () => {
             parcelId: parcel?._id,
             senderEmail: parcel?.senderEmail,
             parcelName: parcel?.parcelName,
+            trackingId: parcel.trackingId,
         };
         const res = await axiosSecure.post(
             "/create-checkout-session",
@@ -96,9 +98,13 @@ const MyParcels = () => {
                                             Pay
                                         </button>
                                     )}
-                                    
                                 </td>
-                                <td>{parcel.trackingId}</td>
+                                <td>
+                                    <Link
+                                        to={`/parcel-track/${parcel.trackingId}`}>
+                                        {parcel.trackingId}
+                                    </Link>
+                                </td>
                                 <td>{parcel.deliveryStatus}</td>
                                 <td className="flex gap-4">
                                     <button className="btn btn-square hover:bg-primary">
