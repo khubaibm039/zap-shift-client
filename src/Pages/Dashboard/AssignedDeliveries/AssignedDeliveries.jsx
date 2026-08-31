@@ -16,8 +16,12 @@ const AssignedDeliveries = () => {
         },
     });
     const handleDeliveryStatusUpdate = (parcel, status) => {
-        const statusInfo = { deliveryStatus: status };
-        let massage = `parcel status is updated with ${status.split('_').join(' ')}`
+        const statusInfo = {
+            deliveryStatus: status,
+            riderId: parcel.riderId,
+            trackingId: parcel.trackingId,
+        };
+        let massage = `parcel status is updated with ${status.split("_").join(" ")}`;
         axiosSecure
             .patch(`/parcels/${parcel._id}/status`, statusInfo)
             .then((res) => {
@@ -79,26 +83,34 @@ const AssignedDeliveries = () => {
                                     )}
                                 </td>
                                 <td>
-                                    <button
-                                        onClick={() =>
-                                            handleDeliveryStatusUpdate(
-                                                parcel,
-                                                "parcel_picked_up",
-                                            )
-                                        }
-                                        className="btn btn-soft btn-accent btn-ghost mr-2">
-                                        Mark as picked up
-                                    </button>
-                                    <button
-                                        onClick={() =>
-                                            handleDeliveryStatusUpdate(
-                                                parcel,
-                                                "parcel_delivered",
-                                            )
-                                        }
-                                        className="btn btn-soft btn-ghost btn-info">
-                                        Mark as delivered
-                                    </button>
+                                    {parcel.deliveryStatus ===
+                                    "parcel_picked_up" ? (
+                                        <>
+                                            <button
+                                                onClick={() =>
+                                                    handleDeliveryStatusUpdate(
+                                                        parcel,
+                                                        "parcel_delivered",
+                                                    )
+                                                }
+                                                className="btn btn-soft btn-ghost btn-info">
+                                                Mark as delivered
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <button
+                                                onClick={() =>
+                                                    handleDeliveryStatusUpdate(
+                                                        parcel,
+                                                        "parcel_picked_up",
+                                                    )
+                                                }
+                                                className="btn btn-soft btn-accent btn-ghost">
+                                                Mark as picked up
+                                            </button>
+                                        </>
+                                    )}
                                 </td>
                             </tr>
                         ))}
