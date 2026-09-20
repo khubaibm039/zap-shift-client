@@ -8,7 +8,7 @@ const DashboardLayout = () => {
     const { role, isLoading } = useRole();
     return (
         <div>
-            <div className="drawer lg:drawer-open max-w-7xl mx-auto">
+            <div  className="drawer lg:drawer-open max-w-7xl mx-auto">
                 <input
                     id="my-drawer-4"
                     type="checkbox"
@@ -42,7 +42,7 @@ const DashboardLayout = () => {
                     <Outlet></Outlet>
                 </div>
 
-                <div className="drawer-side is-drawer-close:overflow-visible">
+                <div className="drawer-side is-drawer-close:overflow-visible max-w-3xl mx-auto">
                     <label
                         htmlFor="my-drawer-4"
                         aria-label="close sidebar"

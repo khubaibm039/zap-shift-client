@@ -73,7 +73,7 @@ const UsersManagement = () => {
     };
 
     return (
-        <div>
+        <div  className="max-w-6xl mx-auto">
             <h1 className="text-4xl">Manage User : {users.length}</h1>
            
             <label className="input">

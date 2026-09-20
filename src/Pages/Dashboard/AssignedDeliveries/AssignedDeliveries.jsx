@@ -37,7 +37,7 @@ const AssignedDeliveries = () => {
             });
     };
     return (
-        <div>
+        <div  className="max-w-6xl mx-auto">
             <h2 className="font-black text-5xl">
                 this is the page where rider can accept or reject the ride
             </h2>

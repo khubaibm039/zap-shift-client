@@ -67,7 +67,7 @@ const ApproveRiders = () => {
     );
 
     return (
-        <div>
+        <div className="max-w-6xl mx-auto">
             <div className="text-5xl">
                 Riders pending Approval {riders.length}
             </div>

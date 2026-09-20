@@ -20,7 +20,7 @@ const PaymentHistory = () => {
      console.log(payments)
 
     return (
-        <div>
+        <div  className="max-w-6xl mx-auto">
             <h2 className="text-5xl"> Payment History : {payments.length} </h2>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">

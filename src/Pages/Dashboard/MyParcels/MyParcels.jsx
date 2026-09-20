@@ -62,7 +62,7 @@ const MyParcels = () => {
     };
 
     return (
-        <div>
+        <div  className="max-w-6xl mx-auto">
             <h2>all parcels {parcels.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">

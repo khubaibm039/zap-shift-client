@@ -48,7 +48,7 @@ const Payment = () => {
     }
 
     return (
-        <div>
+        <div  className="max-w-6xl mx-auto">
             <h3>
                 Please pay ${parcel.price} for: {parcel.parcelName}
             </h3>
