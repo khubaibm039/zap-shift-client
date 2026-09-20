@@ -8,7 +8,7 @@ const DashboardLayout = () => {
     const { role, isLoading } = useRole();
     return (
         <div>
-            <div  className="drawer lg:drawer-open max-w-7xl mx-auto">
+            <div className="drawer lg:drawer-open max-w-7xl mx-auto">
                 <input
                     id="my-drawer-4"
                     type="checkbox"
@@ -112,7 +112,7 @@ const DashboardLayout = () => {
                                             </span>
                                         </NavLink>
                                     </li>
-                                     <li>
+                                    <li>
                                         <NavLink
                                             className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                                             data-tip="Completed Deliveries"
@@ -169,10 +169,12 @@ const DashboardLayout = () => {
                             )}
                             {/* List item */}
                             <li>
-                                <button
+                                <NavLink
+                                    to={"setting"}
                                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                                     data-tip="Settings">
                                     {/* Settings icon */}
+
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
@@ -190,7 +192,7 @@ const DashboardLayout = () => {
                                     <span className="is-drawer-close:hidden">
                                         Settings
                                     </span>
-                                </button>
+                                </NavLink>
                             </li>
                         </ul>
                     </div>

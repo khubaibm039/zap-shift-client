@@ -25,6 +25,7 @@ import AssignedDeliveries from "../Pages/Dashboard/AssignedDeliveries/AssignedDe
 import RiderRoute from "./RiderRoute";
 import CompletedDeliveries from "../Pages/Dashboard/CompletedDeliveries/CompletedDeliveries";
 import ParcelTrack from "../Pages/ParcelTrack/ParcelTrack";
+import DashboardSettings from "../Pages/Dashboard/DashboardSetting/DashboardSetting";
 
 export const router = createBrowserRouter([
     {
@@ -163,6 +164,10 @@ export const router = createBrowserRouter([
                 element: <RiderRoute>
                     <CompletedDeliveries></CompletedDeliveries>
                 </RiderRoute>
+            },
+            {
+                path: "setting",
+                element: <DashboardSettings></DashboardSettings>
             }
         ],
     },
