@@ -3,6 +3,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { MdBikeScooter, MdHistory, MdTaskAlt } from "react-icons/md";
 import { FaMotorcycle, FaTasks, FaUsers } from "react-icons/fa";
 import useRole from "../Hooks/useRole";
+import logoImg from "../assets/logo.png";
 
 const DashboardLayout = () => {
     const { role, isLoading } = useRole();
@@ -52,8 +53,13 @@ const DashboardLayout = () => {
                         <ul className="menu w-full grow">
                             {/* List item */}
                             <li>
+                                <Link to={"/"}>
+                                    <img src={logoImg} alt="" />
+                                </Link>
+                            </li>
+                            <li>
                                 <Link
-                                    to={"/"}
+                                    to={"/dashboard"}
                                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                                     data-tip="Homepage">
                                     {/* Home icon */}
